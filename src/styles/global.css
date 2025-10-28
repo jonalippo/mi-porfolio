@@ -1,0 +1,42 @@
+@import "./variables.css";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html
+body {
+    font-family: roto-mono, monospace;
+    height: 100%;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    display: flex;
+    margin: 0;
+    flex-direction: column;
+    align-items: center;
+    background-image: linear-gradient(-0deg, #000000, #1a1a2e, #1e2a4a);
+}
+
+main {
+    flex-grow: 1; /* Permite que el contenido principal ocupe todo el espacio */
+    padding-block: 1rem;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.buttonReload {
+    color: rgb(4, 251, 247);
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    width: auto;
+    height:auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}

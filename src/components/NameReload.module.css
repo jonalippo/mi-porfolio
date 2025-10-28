@@ -1,0 +1,44 @@
+.nameReload {
+    cursor: pointer;
+    display: flex;
+    gap: 0.5rem;
+    font-family: roto-mono, monospace;
+    font-weight: bold;
+    font-size: 24px;
+    transition: transform 0.4s ease-out;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.nameReload:hover {
+    transform: translateX(-20px);
+}
+
+.titleName {
+    color: var(--color-info);
+}
+
+.expander {
+    display: inline-block;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: expand 1s ease-in-out infinite;
+    color: #6de58b;
+    transition: opacity 0.4s ease-out, max-width 0.4s ease-out;
+    opacity: 0;
+    max-width: 0px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.nameReload:hover .expander {
+    opacity: 1;
+    max-width: 225px;
+    padding-left: 0.5rem;
+    transform: translateX(-5px); 
+}
+
+.slash {
+    color: #b7f;
+}

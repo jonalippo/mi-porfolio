@@ -1,0 +1,13 @@
+---
+import styles from '../components/Header.module.css';
+import NameReload from './NameReload.astro';
+---
+
+<header class={styles.header}>
+    <NameReload/>
+  <nav class={styles.nav}>
+    <a href="#home" class="nav__link">Inicio</a>
+    <a href="#about" class="nav__link">Acerca de</a>
+    <a href="#projects" class="nav__link">Proyectos</a>
+    <a href="#contact" class="nav__link">Contacto</a>
+  </nav>

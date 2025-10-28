@@ -1,0 +1,10 @@
+:root {
+    --principal-font: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    --secundary-font: 'Courier New', Courier, monospace;
+    --color-text: #ffffff;
+    --color-background: #333333;
+    --color-accent: #4CAF50;
+    --color-warning: #ffa319;
+    --color-error: #cc0000;
+    --color-info: #33c2ff;
+}

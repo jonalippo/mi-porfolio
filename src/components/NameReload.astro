@@ -1,0 +1,18 @@
+---
+import styles from '../components/NameReload.module.css';
+
+const {
+	apertura = '<',
+	cierre = '>',
+	name = 'Jonatan Lippo',
+	expander = 'onClick={reload}'
+} = Astro.props;
+---
+
+<div class={styles.nameReload} onclick="window.location.reload()">
+    <div class={styles.etiquetaApertura}>{apertura}</div>
+    <div class={styles.titleName}>{name}</div>
+    <div class={styles.expander}>{expander}</div>
+    <div class={styles.slash}>/</div>
+    <div class={styles.etiquetaCierre}>{cierre}</div>
+</div>

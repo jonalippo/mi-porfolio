@@ -1,0 +1,104 @@
+.heroBanner {
+    width: 100%;
+    height:700px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: clamp(10px,1.56vw,30px);
+    flex-direction: column;
+}
+
+.contentHeroBanner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+}
+
+.contentDescription {
+    width: 40%;
+    padding: clamp(10px,0.14vw,20px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: start;
+    margin-top: clamp(30px,4.18vw,80px);
+    height: 100%;
+}
+
+.imageContainer {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 50%;
+    overflow: hidden;
+    background-image: linear-gradient(-0deg, #000000, #1a1a2e, #1e2a4a);
+}
+
+.titleHeroBanner {
+    font-size: clamp(20px,4.45vw,85px);
+    font-weight: 700;
+    color: var(--color-text);
+
+} 
+
+.name{
+    color: var(--color-text);
+    font-size: clamp(25px,4.70vw,90px);
+    font-weight: 800;
+    margin-top: clamp(5px,1.23vw,15px);
+}
+
+.textDescription {
+    font-size: clamp(14px,1.23vw,40px);
+    color: rgb(108, 192, 223);
+    margin-top: clamp(15px,2.09vw,20px);
+    line-height: 1.5;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid var(--color-text);
+    width: 39ch;
+    animation: 
+        typing 4s steps(38, end),
+        blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { 
+        width: 0 
+    }
+    to { 
+        width: 39ch 
+    }
+}
+
+@keyframes blink {
+    from, to { 
+        border-color: transparent 
+    }
+    50% { 
+        border-color: var(--color-text) 
+    }
+}
+
+.arrowBounce{
+    cursor: pointer;
+    animation: bounce 1s infinite ease-in-out;
+    margin-top: 20px;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px); 
+    }
+}
