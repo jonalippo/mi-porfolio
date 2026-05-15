@@ -1,6 +1,6 @@
 .aboutSection {
     width: 100%;
-    padding: clamp(80px, 15vw, 150px) 1.5rem;
+    padding: clamp(80px, 15vw, 10px) 1.5rem;
     display: flex;
     justify-content: center;
     overflow: hidden;
@@ -10,18 +10,17 @@
     max-width: 1100px;
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr; /* Móvil: una columna */
+    grid-template-columns: 1fr;
     gap: 4rem;
     align-items: center;
 }
 
 @media (min-width: 1024px) {
     .gridContainer {
-        grid-template-columns: 0.8fr 1.2fr; /* Desktop: imagen y texto al lado */
+        grid-template-columns: 0.8fr 1.2fr;
     }
 }
 
-/* --- LADO VISUAL (Imagen y Animaciones) --- */
 .visualSide {
     position: relative;
     display: flex;
@@ -63,7 +62,6 @@
     opacity: 0.3;
 }
 
-/* Badge de Experiencia */
 .experienceBadge {
     position: absolute;
     bottom: 20px;
@@ -90,17 +88,22 @@
     text-transform: uppercase;
 }
 
-/* --- LADO TEXTO --- */
 .contentSide {
     z-index: 2;
 }
 
 .title {
     font-family: var(--font-title);
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    color: var(--color-accent);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    color: white;
     margin-bottom: 2rem;
     line-height: 1;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.accent {
+    color: var(--color-accent);
 }
 
 .textContent p {

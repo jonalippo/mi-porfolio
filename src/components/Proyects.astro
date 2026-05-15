@@ -1,8 +1,47 @@
 ---
 import styles from '../components/Proyects.module.css';
+
+const projects = [
+    {
+        title: "CV Accesorios",
+        description: "Catalogo web con imagenes de accesorios para el cabello desarrollado con Astro.",
+        tags: ["Astro", "Typescript", "Vercel"],
+        image: "/imgDev.png",
+        link: "#"
+    },
+    {
+        title: "Gym Manager",
+        description: "Aplicaion web de gestion para profesores, gimnasios y clientes, con funcionalidades de pagos y seguimiento de progreso.",
+        tags: ["Astro", "React", "Typescript","Database", "Vercel"],
+        image: "/gymManager.webp",
+        link: "https://dashboard-gym-eight.vercel.app/"
+    }
+];
 ---
 
-<section class={styles.comtainerSection} id="proyectos">
-    <h2>Proyectos</h2>
-    <p class={styles.textDescription}>Estos son algunos de mis proyectos destacados.</p>
+<section class={styles.containerSection} id="proyectos">
+    <div class={styles.header}>
+        <h2 class={styles.title}>Proyectos <span class={styles.accent}>Destacados</span></h2>
+        <p class={styles.textDescription}>Una selección de mis trabajos más recientes en desarrollo web.</p>
+    </div>
+
+    <div class={styles.projectsGrid}>
+        {projects.map((project) => (
+            <div class={styles.projectCard} data-aos="zoom-in">
+                <div class={styles.imageContainer}>
+                    <img src={project.image} alt={project.title} class={styles.projectImage} />
+                    <div class={styles.overlay}>
+                        <p class={styles.cardDescription}>{project.description}</p>
+                        <div class={styles.tags}>
+                            {project.tags.map(tag => <span class={styles.tag}>{tag}</span>)}
+                        </div>
+                        <a href={project.link} class={styles.projectLink} target="_blank">Ver Proyecto</a>
+                    </div>
+                </div>
+                <div class={styles.cardFooter}>
+                    <h3>{project.title}</h3>
+                </div>
+            </div>
+        ))}
+    </div>
 </section>

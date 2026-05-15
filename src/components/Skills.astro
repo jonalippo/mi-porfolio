@@ -5,72 +5,86 @@ const skillData = [
     {
         title: 'Lenguajes',
         skills: [
-            { name: "HTML", src: "/Html.png", alt:"name"},
-            { name: "CSS3", src: "/Css3.png", alt:"name"},
-            { name: "JavaScript", src: "/Javascript.png", alt:"name"}
-        ]
+            { name: "HTML", src: "/Html.png" },
+            { name: "CSS3", src: "/Css3.png" },
+            { name: "JavaScript", src: "/Javascript.png" }
+        ],
+        delay: "100"
     },
     {
-        title: "Librerias/ Frameworks",
+        title: "Librerías & Frameworks",
         skills: [
-            { name: "React", src: "/React.png", alt:"name"},
-            { name: "Astro", src: "/Astro.png", alt:"name"},
-            { name: "React Native", src: "/Reactnative.png", alt:"name"}
-        ]
+            { name: "React", src: "/React.png" },
+            { name: "Astro", src: "/Astro.png" },
+            { name: "React Native", src: "/Reactnative.png" }
+        ],
+        delay: "200"
     },
     {
         title: "Utilidades",
         skills: [
-            { name: "Sass", src: "/Sass.png", alt:"name"},
-            { name: "Tailwind CSS", src: "/Tailwindcss.png", alt:"name"},
-            { name: "TypeScript", src: "/Typescript.png", alt:"name"}
-        ]
+            { name: "Sass", src: "/Sass.png" },
+            { name: "Tailwind CSS", src: "/Tailwindcss.png" },
+            { name: "TypeScript", src: "/Typescript.png" }
+        ],
+        delay: "300"
     },
     {
-        title: "Control de versiones",
+        title: "Versiones & Git",
         skills: [
-            { name: "Git", src: "/Git.png", alt:"name"},
-            { name: "Github", src: "/GitHub.png", alt:"name"}
-        ]
+            { name: "Git", src: "/Git.png" },
+            { name: "Github", src: "/GitHub.png" }
+        ],
+        delay: "400"
     },
     {
-        title: "Herram. de Desarrollo",
+        title: "Herramientas",
         skills: [
-            { name: "VS Code", src: "/Vscode.png", alt:"name"}
-        ]
-    },
-    {
-        title: "Plataforma/CMS",
-        skills: [
-            { name: "WordPress", src: "/Wordpress.png", alt:"name"}
-        ]
-    },
-    {
-        title: "Herram. de diseño",
-        skills: [
-            { name: "Figma", src: "./Figma.png", alt:"name"}
-        ]
-    },
+            { name: "VS Code", src: "/Vscode.png" },
+            { name: "Figma", src: "/Figma.png" },
+            { name: "WordPress", src: "/Wordpress.png" }
+        ],
+        delay: "500"
+    }
 ]
 ---
 
 <section class={styles.skillsSection} id="habilidades">
-    <h2 class={styles.sectionTitle}>Habilidades y Herramientas</h2>
-    <p class={styles.text}>Las habilidades y herramientas que utilizo para dar vida a cada proyecto</p>
-    <div class={styles.carrouselContainer} onmouseleave="resetScroll()">
-        <div class={styles.containerSkills}>
-            {skillData.map(group => (
-                <div class={styles.cardSkill} onmouseover="pauseScroll()" onmouseout="startScroll()">
-                    <h3 class={styles.titleCard}>{group.title}</h3>
-                    
+    <div class={styles.headerArea}>
+        <h2 class={styles.sectionTitle}>Habilidades <span class={styles.accent}>&</span> Herramientas</h2>
+        <p class={styles.text}>Tecnologías que domino para construir soluciones digitales de alto rendimiento.</p>
+    </div>
+
+    <div class={styles.bentoGrid}>
+        {skillData.map(group => (
+            <div class={styles.cardSkill} data-aos="fade-up" data-aos-delay={group.delay}>
+                <div class={styles.cardGlass}></div>
+                <h3 class={styles.titleCard}>{group.title}</h3>
+                <div class={styles.skillsContainer}>
                     {group.skills.map(skill => (
-                        <div class={styles.skill}>
-                            <img src={skill.src} alt={skill.name} width="30" height="30" />
-                            <p>{skill.name}</p>
+                        <div class={styles.skillItem}>
+                            <div class={styles.iconBox}>
+                                <img src={skill.src} alt={skill.name} loading="lazy" />
+                            </div>
+                            <span>{skill.name}</span>
                         </div>
                     ))}
                 </div>
-            ))}
-        </div>
+            </div>
+        ))}
     </div>
 </section>
+
+<script>
+    import AOS from 'aos';
+    import 'aos/dist/aos.css';
+    const initAos = () => {
+    AOS.init({
+        duration: 800,
+        once: true,
+    });
+    };
+
+    // Inicializamos AOS al montar el componente
+    initAos();
+</script>

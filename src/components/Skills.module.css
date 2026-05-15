@@ -1,77 +1,134 @@
-.skillsSection{
-    width: 80%;
-    margin-top: clamp(20px,7.84vw,150px);
+.skillsSection {
+    width: 100%;
+    max-width: 1200px;
+    margin: 10px auto;
+    padding: 0 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.headerArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 40px;
+    align-items: center;
+}
+
+.sectionTitle {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    color: white;
+    margin-bottom: 15px;
+    font-family: var(--font-title);
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.accent {
+    color: var(--color-accent);
 }
 
 .text {
-    font-size: clamp(12px,0.94vw,18px);
-    color: var(--color-text);
-    line-height: 1.6;
+    font-size: clamp(1rem, 1.2vw, 1.2rem);
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 600px;
 }
 
-.carrouselContainer {
-    width: 100%;
-    overflow: hidden; 
-    padding: 20px 0;
-    margin-top: clamp(15px,1.56vw,30px);
-}
-
-.carrouselTrack {
-    display: flex; 
-    width: fit-content; 
-    animation: scroll-left 40s linear infinite; 
-    gap: clamp(10px, 1.56vw, 30px);
-}
-
-.containerSkills {
-    width: 100%;
+.bentoGrid {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
-    gap: clamp(10px,1.56vw,30px);
-    margin-top: clamp(15px,1.56vw,30px);
+    justify-content: center;
+    align-items: stretch;
+    gap: 15px;
+    width: 100%;
 }
 
 .cardSkill {
-    width: clamp(120px,20.83vw,180px);
-    height: clamp(150px,13.07vw,250px);
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    border: 2px solid gray;
-    box-shadow: 0 4px 8px rgba(245, 246, 246, 0.585);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden;
-    flex-shrink: 0;
+    max-width: 350px;
+    flex: 1 1 300px; /* Permite que crezcan pero intenten mantenerse juntas */
+    transition: all 0.3s ease;
 }
 
 .cardSkill:hover {
-    transform: scale(1.1); 
+    transform: scale(1.03);
+    border-color: var(--color-accent);
+    background: rgba(0, 255, 242, 0.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 
+                0 0 20px rgba(0, 255, 242, 0.1);
 }
 
 .titleCard {
+    font-size: 1.1rem;
+    color: white;
+    margin-bottom: 25px;
+    font-weight: 600;
+    position: relative;
+}
+
+.skillsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+.skillItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.skillItem:hover {
+    background: rgba(0, 255, 242, 0.15);
+}
+
+.iconBox {
+    width: 30px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    font-size: clamp(12px,0.83vw,16px);
-    font-weight: 500;
-    width: 100%;
-    height: clamp(40px,3.33vw,60px);
-    border-bottom: 2px solid gray;
-    padding: 12px;
-    color: var(--color-text);
 }
-.skill {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: clamp(8px,0.83vw,16px);
-    flex-direction: row;
-    padding: clamp(8px,0.83vw,16px);
-    font-size: clamp(10px,0.73vw,14px);
-    color: var(--color-text);
+
+.skillItem:hover .iconBox {
+    background: rgba(0, 255, 242, 0.2);
+    box-shadow: 0 0 15px rgba(0, 255, 242, 0.3);
+}
+
+.iconBox img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.skillItem span {
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .bentoGrid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cardSkill {
+        flex: 1 1 100%; /* En móviles ocupan todo el ancho */
+        max-width: none;
+    }
 }
