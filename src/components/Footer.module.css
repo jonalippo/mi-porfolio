@@ -7,11 +7,9 @@ footer {
     color: white;
     text-align: center;
     font-size: clamp(12px,0.94vw,18px);
-    position: fixed;
     bottom: 0;
     width: 100%;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
 }
 
 .socialsLinks a {

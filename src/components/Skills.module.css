@@ -1,0 +1,77 @@
+.skillsSection{
+    width: 80%;
+    margin-top: clamp(20px,7.84vw,150px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.text {
+    font-size: clamp(12px,0.94vw,18px);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+.carrouselContainer {
+    width: 100%;
+    overflow: hidden; 
+    padding: 20px 0;
+    margin-top: clamp(15px,1.56vw,30px);
+}
+
+.carrouselTrack {
+    display: flex; 
+    width: fit-content; 
+    animation: scroll-left 40s linear infinite; 
+    gap: clamp(10px, 1.56vw, 30px);
+}
+
+.containerSkills {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: clamp(10px,1.56vw,30px);
+    margin-top: clamp(15px,1.56vw,30px);
+}
+
+.cardSkill {
+    width: clamp(120px,20.83vw,180px);
+    height: clamp(150px,13.07vw,250px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid gray;
+    box-shadow: 0 4px 8px rgba(245, 246, 246, 0.585);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.cardSkill:hover {
+    transform: scale(1.1); 
+}
+
+.titleCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: clamp(12px,0.83vw,16px);
+    font-weight: 500;
+    width: 100%;
+    height: clamp(40px,3.33vw,60px);
+    border-bottom: 2px solid gray;
+    padding: 12px;
+    color: var(--color-text);
+}
+.skill {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: clamp(8px,0.83vw,16px);
+    flex-direction: row;
+    padding: clamp(8px,0.83vw,16px);
+    font-size: clamp(10px,0.73vw,14px);
+    color: var(--color-text);
+}

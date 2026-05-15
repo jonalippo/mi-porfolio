@@ -1,43 +1,121 @@
-header {
-    padding: 20px 0px;
-    color: white;
-    text-align: center;
-    width: 70%;
-    height: 80px;
+.header {
+    width: 100vw;
+    margin: 0;
+    padding: 0 5%;
+    height: var(--header-height);
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
 }
 
-nav {
+.nav {
     display: flex;
-    gap: 100px;
+    gap: 40px;
 }
 
-nav a{
+.nav a {
     color: white;
     text-decoration: none;
     font-weight: bold;
     font-size: 18px;
     cursor: pointer;
     position: relative;
+    transition: color 0.3s ease;
+    font-family: var(--font-body);
+}
+.nav a:hover {
+    color: var(--color-accent);
 }
 
 .nav a::after {
     content: '';
     position: absolute;
-    bottom: -5px; 
+    bottom: -5px;
     left: 35%;
-    transform: translateX(-50%); 
-    height: 4px;
-    background-color: #61dafb;
-    /* Definir el estado inicial (oculto y 0 de ancho) */
-    width: 0; 
+    transform: translateX(-50%);
+    height: 2px;
+    background-color: var(--color-accent);
+    width: 0;
     opacity: 0;
     transition: width 0.3s ease-out, opacity 0.3s ease-out;
 }
 
 .nav a:hover::after {
-    width: 75%; 
-    opacity: 1; 
+    width:75%;
+    opacity: 1;
+}
+
+:global(body) {
+    padding-top: var(--header-height);
+}
+.menuToggle, .menuClose { display: none; }
+
+/* --- MOBILE (< 768px) --- */
+@media (max-width: 768px) {
+    .header {
+        width: 100vw;
+        left: 0;
+        padding: 0 20px;
+    }
+
+    .menuToggle {
+        display: flex;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .hamburger, .hamburger::before, .hamburger::after {
+        content: '';
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: white;
+        position: relative;
+        transition: 0.3s;
+    }
+    .hamburger::before { position: absolute; top: -8px; }
+    .hamburger::after { position: absolute; bottom: -8px; }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(10, 10, 10, 0.98);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+        z-index: 2000;
+        transform: translateX(100%); 
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 0.4s ease, opacity 0.3s ease;
+    }
+
+    .menuClose {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        background: none;
+        border: none;
+        color: var(--color-accent);
+        font-size: 3rem;
+        cursor: pointer;
+    }
+
+    .nav a {
+        font-size: 1.8rem;
+    }
 }

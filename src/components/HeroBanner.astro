@@ -2,34 +2,40 @@
 import styles from './HeroBanner.module.css';
 ---
 
-<section class={styles.heroBanner}>
-    <div class={styles.contentHeroBanner}>
-        <div class={styles.contentDescription}>
-            <h1 class={styles.titleHeroBanner}>Hola! Soy</h1>
-            <p class={styles.name}>Jonatan Lippo</p>
-            <p class={styles.textDescription}>- Desarrollador Front-end & Mobile -</Desarrollador></p>
+<section id="home" class={styles.heroBanner}>
+    <div class={styles.container}>
+        <div class={styles.imageContainer}>
+            <img src="/imgDev.png" alt="Jonatan Lippo - Desarrollador" class={styles.heroImage} />
         </div>
 
-        <div class={styles.imageContainer}>
-            <img src="../../imgPerfil.png" alt="ImagenPerfil" class={styles.heroImage} />
+        <div class={styles.contentDescription}>
+            <h1 class={styles.title}>Hola! Soy</h1>
+            <p class={styles.name}>Jonatan Lippo</p>
+            <div class={styles.typewriterContainer}>
+                <p class={styles.textDescription}>Desarrollador Front-end</p>
+            </div>
+    
+            <div class={styles.socialLinks}>
+                <a href="https://github.com/jonalippo" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+                <a href="https://linkedin.com/in/jonatan-lippo" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+            </div>
         </div>
     </div>
 
-    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" class={styles.arrowBounce} onclick="scrollToNextSection('hola')">
-        <path fill="#1df3f7" d="M12 7v8.25L15.25 12l.75.66l-4.5 4.5l-4.5-4.5l.75-.66L11 15.25V7zm-.5 15C6.26 22 2 17.75 2 12.5A9.5 9.5 0 0 1 11.5 3a9.5 9.5 0 0 1 9.5 9.5a9.5 9.5 0 0 1-9.5 9.5m0-1a8.5 8.5 0 0 0 8.5-8.5A8.5 8.5 0 0 0 11.5 4A8.5 8.5 0 0 0 3 12.5a8.5 8.5 0 0 0 8.5 8.5"/>
-    </svg>
+    <button id="scrollBtn" class={styles.arrowBtn} aria-label="Ir a sección Sobre Mí">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+            <path fill="var(--color-accent)" d="M12 7v8.25L15.25 12l.75.66l-4.5 4.5l-4.5-4.5l.75-.66L11 15.25V7zm-.5 15C6.26 22 2 17.75 2 12.5A9.5 9.5 0 0 1 11.5 3a9.5 9.5 0 0 1 9.5 9.5a9.5 9.5 0 0 1-9.5 9.5m0-1a8.5 8.5 0 0 0 8.5-8.5A8.5 8.5 0 0 0 11.5 4A8.5 8.5 0 0 0 3 12.5a8.5 8.5 0 0 0 8.5 8.5"/>
+        </svg>
+    </button>
 </section>
 
-<script is:inline>
-    // La función recibe el ID del elemento al que queremos desplazarnos (ej. 'hola')
-    function scrollToNextSection(id) { 
-        const targetElement = document.getElementById(id);
-        
-        if (targetElement) {
-            targetElement.scrollIntoView({
-                behavior: 'smooth', // Desplazamiento animado y suave
-                block: 'start'      // Alinea la parte superior del elemento con la parte superior del viewport
-            });
-        }
-    }
+<script>
+    const btn = document.getElementById('scrollBtn');
+    btn?.addEventListener('click', () => {
+        document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+    });
 </script>

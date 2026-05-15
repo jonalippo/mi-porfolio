@@ -1,104 +1,122 @@
 .heroBanner {
     width: 100%;
-    height:700px;
-    background-color: transparent;
+    min-height: calc(100vh - var(--header-height));
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: clamp(10px,1.56vw,30px);
     flex-direction: column;
+    padding: 2rem;
 }
 
-.contentHeroBanner {
+.container {
     width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: start;
-    justify-content: center;
-}
-
-.contentDescription {
-    width: 40%;
-    padding: clamp(10px,0.14vw,20px);
+    max-width: 1200px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: start;
-    margin-top: clamp(30px,4.18vw,80px);
-    height: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+    .container {
+        flex-direction: row-reverse;
+        text-align: left;
+    }
 }
 
 .imageContainer {
-    width: 500px;
-    height: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    object-fit: contain;
-    object-position: center;
+    width: clamp(250px, 30vw, 400px);
+    aspect-ratio: 1 / 1;
     border-radius: 50%;
     overflow: hidden;
-    background-image: linear-gradient(-0deg, #000000, #1a1a2e, #1e2a4a);
+    border: 2px solid var(--color-accent);
+    box-shadow: 0 0 20px rgba(29, 243, 247, 0.2);
 }
 
-.titleHeroBanner {
-    font-size: clamp(20px,4.45vw,85px);
-    font-weight: 700;
-    color: var(--color-text);
+.heroImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-} 
+.contentDescription {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-.name{
+@media (min-width: 1024px) {
+    .contentDescription {
+        align-items: flex-start;
+    }
+}
+
+.title {
+    font-family: var(--font-title);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
     color: var(--color-text);
-    font-size: clamp(25px,4.70vw,90px);
+}
+
+.name {
+    font-family: var(--font-title);
+    font-size: clamp(2.5rem, 8vw, 5rem);
     font-weight: 800;
-    margin-top: clamp(5px,1.23vw,15px);
+    color: var(--color-accent);
+    line-height: 1.1;
+}
+
+.typewriterContainer {
+    min-height: 1.5em;
+    margin-top: 1rem;
 }
 
 .textDescription {
-    font-size: clamp(14px,1.23vw,40px);
-    color: rgb(108, 192, 223);
-    margin-top: clamp(15px,2.09vw,20px);
-    line-height: 1.5;
-    text-transform: uppercase;
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    color: rgba(255, 255, 255, 0.8);
+    border-right: 3px solid var(--color-accent);
     white-space: nowrap;
     overflow: hidden;
-    border-right: 3px solid var(--color-text);
-    width: 39ch;
-    animation: 
-        typing 4s steps(38, end),
-        blink 0.75s step-end infinite;
+    width: 0;
+    animation: typing 3s steps(30, end) forwards, blink 0.75s step-end infinite;
+}
+
+.socialLinks {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.socialLinks a {
+    color: var(--color-text);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.socialLinks a:hover {
+    color: var(--color-accent);
+    transform: translateY(-5px);
+}
+
+.arrowBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-top: 3rem;
+    animation: bounce 2s infinite;
 }
 
 @keyframes typing {
-    from { 
-        width: 0 
-    }
-    to { 
-        width: 39ch 
-    }
+    from { width: 0 }
+    to { width: 100% }
 }
 
 @keyframes blink {
-    from, to { 
-        border-color: transparent 
-    }
-    50% { 
-        border-color: var(--color-text) 
-    }
-}
-
-.arrowBounce{
-    cursor: pointer;
-    animation: bounce 1s infinite ease-in-out;
-    margin-top: 20px;
+    50% { border-color: transparent }
 }
 
 @keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(10px); 
-    }
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
 }

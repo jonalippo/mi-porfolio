@@ -1,0 +1,76 @@
+---
+import styles from '../components/Skills.module.css';
+
+const skillData = [
+    {
+        title: 'Lenguajes',
+        skills: [
+            { name: "HTML", src: "/Html.png", alt:"name"},
+            { name: "CSS3", src: "/Css3.png", alt:"name"},
+            { name: "JavaScript", src: "/Javascript.png", alt:"name"}
+        ]
+    },
+    {
+        title: "Librerias/ Frameworks",
+        skills: [
+            { name: "React", src: "/React.png", alt:"name"},
+            { name: "Astro", src: "/Astro.png", alt:"name"},
+            { name: "React Native", src: "/Reactnative.png", alt:"name"}
+        ]
+    },
+    {
+        title: "Utilidades",
+        skills: [
+            { name: "Sass", src: "/Sass.png", alt:"name"},
+            { name: "Tailwind CSS", src: "/Tailwindcss.png", alt:"name"},
+            { name: "TypeScript", src: "/Typescript.png", alt:"name"}
+        ]
+    },
+    {
+        title: "Control de versiones",
+        skills: [
+            { name: "Git", src: "/Git.png", alt:"name"},
+            { name: "Github", src: "/GitHub.png", alt:"name"}
+        ]
+    },
+    {
+        title: "Herram. de Desarrollo",
+        skills: [
+            { name: "VS Code", src: "/Vscode.png", alt:"name"}
+        ]
+    },
+    {
+        title: "Plataforma/CMS",
+        skills: [
+            { name: "WordPress", src: "/Wordpress.png", alt:"name"}
+        ]
+    },
+    {
+        title: "Herram. de diseño",
+        skills: [
+            { name: "Figma", src: "./Figma.png", alt:"name"}
+        ]
+    },
+]
+---
+
+<section class={styles.skillsSection} id="habilidades">
+    <h2 class={styles.sectionTitle}>Habilidades y Herramientas</h2>
+    <p class={styles.text}>Las habilidades y herramientas que utilizo para dar vida a cada proyecto</p>
+    <div class={styles.carrouselContainer} onmouseleave="resetScroll()">
+        <div class={styles.containerSkills}>
+            {skillData.map(group => (
+                <div class={styles.cardSkill} onmouseover="pauseScroll()" onmouseout="startScroll()">
+                    <h3 class={styles.titleCard}>{group.title}</h3>
+                    
+                    {group.skills.map(skill => (
+                        <div class={styles.skill}>
+                            <img src={skill.src} alt={skill.name} width="30" height="30" />
+                            <p>{skill.name}</p>
+                        </div>
+                    ))}
+                </div>
+            ))}
+        </div>
+    </div>
+</section>

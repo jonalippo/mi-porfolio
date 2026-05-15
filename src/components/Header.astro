@@ -4,10 +4,43 @@ import NameReload from './NameReload.astro';
 ---
 
 <header class={styles.header}>
-    <NameReload/>
-  <nav class={styles.nav}>
+  <NameReload />
+
+  <button id="menu-toggle" class={styles.menuToggle}>
+    <span class={styles.hamburger}></span>
+  </button>
+
+  <nav id="nav-menu" class={styles.nav}>
+    <button id="menu-close" class={styles.menuClose}>&times;</button>
+    
     <a href="#home" class="nav__link">Inicio</a>
-    <a href="#about" class="nav__link">Acerca de</a>
-    <a href="#projects" class="nav__link">Proyectos</a>
-    <a href="#contact" class="nav__link">Contacto</a>
+    <a href="#acercaDe" class="nav__link">Acerca de</a>
+    <a href="#habilidades" class="nav__link">Habilidades</a>
+    <a href="#proyectos" class="nav__link">Proyectos</a>
+    <a href="#contacto" class="nav__link">Contacto</a>
   </nav>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const close = document.getElementById('menu-close');
+  const menu = document.getElementById('nav-menu');
+
+  const openMenu = () => menu?.classList.add('is_open');
+  const closeMenu = () => menu?.classList.remove('is_open');
+
+  toggle?.addEventListener('click', openMenu);
+  close?.addEventListener('click', closeMenu);
+
+  menu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+</script>
+
+<style is:global>
+  .is_open {
+    transform: translateX(0) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+</style>

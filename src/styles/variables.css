@@ -1,10 +1,14 @@
 :root {
-    --principal-font: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    --secundary-font: 'Courier New', Courier, monospace;
+    --color-background: #000000;
+    --color-background-soft: #1a1a2e;
+    --color-background-mute: #1e2a4a;
+    --color-accent: #1df3f7;
     --color-text: #ffffff;
-    --color-background: #333333;
-    --color-accent: #4CAF50;
     --color-warning: #ffa319;
     --color-error: #cc0000;
     --color-info: #33c2ff;
-}
+    --font-main: 'monospace'; 
+    --header-height: 80px; 
+    --font-title: 'Space Grotesk', sans-serif;
+    --font-body: 'Roboto Mono', monospace;
+  }

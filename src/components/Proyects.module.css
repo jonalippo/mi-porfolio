@@ -1,0 +1,23 @@
+.comtainerSection {
+    width:80%;
+    padding-block: 30px;
+    display: flex;
+    align-items: start;
+    justify-content:center;
+    flex-direction: column;
+    margin-top: clamp(20px,5.23vw,100px);
+}
+
+h2 {
+    font-size: clamp(14px,1.23vw,40px);
+    color: rgb(108, 192, 223);
+    margin-bottom: clamp(14px,1.046vw,20px);
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.textDescription {
+    font-size: clamp(12px,0.94vw,18px);
+    color: var(--color-text);
+    line-height: 1.6;
+}

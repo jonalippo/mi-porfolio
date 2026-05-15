@@ -1,0 +1,134 @@
+.aboutSection {
+    width: 100%;
+    padding: clamp(80px, 15vw, 150px) 1.5rem;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.gridContainer {
+    max-width: 1100px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr; /* Móvil: una columna */
+    gap: 4rem;
+    align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .gridContainer {
+        grid-template-columns: 0.8fr 1.2fr; /* Desktop: imagen y texto al lado */
+    }
+}
+
+/* --- LADO VISUAL (Imagen y Animaciones) --- */
+.visualSide {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.imageWrapper {
+    width: clamp(280px, 30vw, 380px);
+    aspect-ratio: 4 / 5;
+    border-radius: 24px;
+    overflow: hidden;
+    z-index: 2;
+    border: 1px solid rgba(29, 243, 247, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    animation: float 6s ease-in-out infinite; /* Animación de flotado */
+}
+
+.profileImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.imageWrapper:hover .profileImage {
+    transform: scale(1.08);
+}
+
+/* Decoración detrás de la imagen */
+.shapeDecoration {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--color-accent);
+    border-radius: 24px;
+    z-index: 1;
+    opacity: 0.3;
+}
+
+/* Badge de Experiencia */
+.experienceBadge {
+    position: absolute;
+    bottom: 20px;
+    left: -10px;
+    background: var(--color-accent);
+    color: #000;
+    padding: 1rem;
+    border-radius: 12px;
+    z-index: 3;
+    font-family: var(--font-title);
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(29, 243, 247, 0.3);
+}
+
+.experienceBadge span {
+    font-size: 1.5rem;
+    font-weight: 800;
+    display: block;
+}
+
+.experienceBadge p {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* --- LADO TEXTO --- */
+.contentSide {
+    z-index: 2;
+}
+
+.title {
+    font-family: var(--font-title);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--color-accent);
+    margin-bottom: 2rem;
+    line-height: 1;
+}
+
+.textContent p {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 1.2vw, 1.15rem);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+    opacity: 0.9;
+}
+
+.textContent span {
+    color: var(--color-accent);
+    font-weight: 600;
+    border-bottom: 1px solid rgba(29, 243, 247, 0.2);
+}
+
+/* --- ANIMACIONES --- */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@media (max-width: 1024px) {
+    .experienceBadge {
+        left: 10%;
+    }
+    .shapeDecoration {
+        display: none;
+    }
+}
